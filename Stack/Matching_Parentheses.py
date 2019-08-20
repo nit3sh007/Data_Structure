@@ -1,6 +1,6 @@
 #creating opening list 
 openList = ["[","{","("]
-#creating closong list
+#creating closeing list
 closeList = ["]","}",")"]
 def balance(myStr):
 #create a Empty Stack 
