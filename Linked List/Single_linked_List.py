@@ -36,13 +36,34 @@ class linklist:
             return
         new_node = Node(data)
         new_node.next = prev_node.next
-        prev_node.next=new_node     
+        prev_node.next=new_node   
+ 
+    def delete_node(self,key):
+
+        cur_node = self.head
+
+        if cur_node and cur_node.data ==key:
+            self.head = cur_node.next
+            cur_node = None
+            return
+        prev = None
+        while cur_node and cur_node.data != key:
+            prev= cur_node
+            cur_node = cur_node.next
+        
+        if cur_node is None:
+            return    
+        prev.next = cur_node.next
+        cur_node = None    
+
+
      
 linklst = linklist()
 linklst.append_end(10)
 linklst.append_end(20)
 linklst.append_end(40)
 linklst.append_start(100)
-linklst.insert_in_btw(linklst.head.next.next, 10000)
+#linklst.insert_in_btw(linklst.head.next.next, 10000)
+linklst.delete_node(40)
 linklst.peek()
              
