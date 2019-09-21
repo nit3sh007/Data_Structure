@@ -1,4 +1,4 @@
-                                        #insert or Search
+                                                  #insert - Search - Inorder
 class Node:
     def __init__(self,data):
         self.data = data
@@ -65,10 +65,27 @@ class BST():
                 return self._search(data,cur_node.rightChild) 
             if data ==cur_node.data:
                 return True
-                    
+
+        def inorder(self):
+            if self.root:
+                self._inorder(self.root)
+
+        def _inorder(self,cur_node):
+            if cur_node:
+                self._inorder(cur_node.leftChild)
+                print(str(cur_node.data))
+                self._inorder(cur_node.rightChild)                                
 
 bst = BST()
 bst.insert(10)
 bst.insert(1)
 bst.insert(11)
-print(bst.search(0))
+# print(bst.search(0))
+
+tree = BST()
+tree.root = Node(1)
+tree.root.leftChild = Node(2)
+tree.root.rightChild = Node(3)
+
+print(tree.inorder())
+print(tree.inorder())
